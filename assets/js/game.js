@@ -6,7 +6,7 @@ var playerMoney = 10;
 
 console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
@@ -26,6 +26,12 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
         playerName + " attacked " + enemyName + " . " + enemyName + " now has " + enemyHealth + " health reamining. "
     );
 
+// Game States
+// "Win" - Player robot has defeated all enemy-robots
+//  * Fight all enemy-robots
+//  * Defeat all enemy-robots
+// "Lose" - Player robot's health is zero or less
+   
 // check enemy's heath 
 if (enemyHealth <= 0) {
     window.alert(enemyName + " has died! ");
@@ -67,9 +73,11 @@ if (playerHealth <=0) {
     };
 
     // run fight function to start game
-    fight();
+    for(var i = 0; i < enemyNames.length; i++) {
+        fight(enemyNames[i]);
+    }
 
-
+    
 
 
 
